@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DialogflowService } from './services/dialogflow.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ang-bot';
+
+  constructor(private dfs: DialogflowService) {
+    const state = localStorage.getItem('logState');
+    if (!state || state !== 'enabled') {
+      console.log = () => { }
+      console.warn = () => { }
+    }
+
+  }
 }

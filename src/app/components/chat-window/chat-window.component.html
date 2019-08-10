@@ -1,0 +1,136 @@
+<div class="row">
+    <div class="col-md-6 d-none d-sm-block">
+        <div class="blog-post single-post">
+
+            <!-- Blog Post Thumbnail -->
+            <div class="blog-post-thumbnail">
+                <div class="blog-post-thumbnail-inner">
+                    <span class="blog-item-tag">BBot : DialogFlow Chatbot</span>
+                    <img src="https://images.unsplash.com/photo-1495055154266-57bbdeada43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                        alt="">
+                </div>
+            </div>
+
+            <!-- Blog Post Content -->
+            <div class="blog-post-content">
+                <h3 class="margin-bottom-10">BBot :Design your richmessage angular 8 chatbot with DialogFlow</h3>
+
+                <div class="blog-post-info-list margin-bottom-20">
+                    <a href="#" class="blog-post-info">02 August 2019</a>
+
+                </div>
+
+                <p>I love to have a personal assistant but I dont want to pay for that 🤪; So, I made this personal
+                    intro Bot using DialogFlow.
+                    DialogFlow supports richmessage on many well-known platforms like Hangouts, Google assistant,
+                    Messanger, Slack but not on plain HTML (as of date).
+                    So I tweaked text message response (as custom payloads are not received on angular/JS clients) and
+                    parsed as custom message objects to operate like rich messages </p>
+
+
+                <blockquote class="margin-top-20 margin-bottom-20">
+                    Here we support plain text messages, Images, Videos, WebUrl, Audio Url, Document Urls, Options
+                    (Chips) etc.
+                    I am also planning to embed the text-to-speech when response is sent by BBot.
+                </blockquote>
+
+
+                <!-- Share Buttons -->
+                <div class="share-buttons margin-top-25">
+                    <div class="share-buttons-trigger"><i class="icon-feather-heart"></i></div>
+
+                    <span> Interesting?
+                        <a href="https://github.com/erBhushanPawar/angular8-dialogflow-richmessage-bot"
+                            target="__blank">Fork My Git Repo</a> |
+                        <a href="mailto:bkp.oct@gmail.com">Mail For Help</a>
+                    </span>
+                </div>
+                <small>Image credit : Unsplash</small>
+            </div>
+
+        </div>
+    </div>
+    <div *ngIf="!askInfo" class="col-md-6 message-content">
+
+        <div class="messages-headline">
+            <h4>I'm BBot : Intro Bot <small>{{t}}</small>
+                <p><small>Designed by <a href="https://erbhushanpawar.github.io/">Bhushan Pawar</a> </small></p>
+            </h4>
+            <a href="javascript:void()" (click)="clearConversation()" class="message-action"><i
+                    class="icon-feather-trash-2"></i> Clear Conversation</a>
+        </div>
+
+        <!-- Message Content Inner -->
+        <div style="min-height:350px" class="message-content-inner">
+            <app-message *ngFor="let m of conversation" [message]="m" (onChipSelected)="onChipSelected($event)">
+            </app-message>
+
+        </div>
+
+        <!-- Message Content Inner / End -->
+
+        <!-- Reply Area -->
+        <div class="message-reply">
+
+            <input type="text" placeholder="Type message and hit enter" [(ngModel)]="textMessage"
+                (keyup.enter)="sendMessage()">
+        </div>
+
+    </div>
+    <div *ngIf="askInfo" style="padding: 50px;" class="col-md-6">
+
+        <div class="login-register-page">
+            <!-- Welcome Text -->
+            <div class="welcome-text">
+                <h3 style="font-size: 26px;">Let us know about you</h3>
+                <span>Leave your details here</span>
+            </div>
+
+            <!-- Account Type -->
+            <div class="account-type">
+                <div>
+                    <input type="radio" name="account-type-radio" id="freelancer-radio" class="account-type-radio"
+                        checked="">
+                    <label for="freelancer-radio" class="ripple-effect-dark"><i
+                            class="icon-material-outline-account-circle"></i> Personal</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="account-type-radio" id="employer-radio" class="account-type-radio">
+                    <label for="employer-radio" class="ripple-effect-dark"><i
+                            class="icon-material-outline-business-center"></i> Business</label>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form method="post" id="register-account-form">
+                <div class="input-with-icon-left" data-tippy-placement="bottom" data-tippy=""
+                    data-original-title="Should be at least 8 characters long">
+                    <i class="icon-material-outline-lock"></i>
+                    <input type="text" class="input-text with-border" name="password-register" id="password-register"
+                        placeholder="Name" required="">
+                </div>
+
+                <div class="input-with-icon-left">
+                    <i class="icon-material-baseline-mail-outline"></i>
+                    <input type="text" class="input-text with-border" name="emailaddress-register"
+                        id="emailaddress-register" placeholder="Email Address" required="">
+                </div>
+
+
+                <div class="input-with-icon-left">
+                    <i class="icon-material-outline-lock"></i>
+                    <input type="number" class="input-text with-border" name="phone" id="phone" placeholder="Phone"
+                        required="">
+                </div>
+            </form>
+
+            <!-- Button -->
+            <button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="button"
+                (click)="askInfo = false;" style="width: 454.156px;">Get started <i
+                    class="icon-material-outline-arrow-right-alt"></i></button>
+
+        </div>
+
+    </div>
+</div>
