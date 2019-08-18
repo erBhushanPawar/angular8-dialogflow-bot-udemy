@@ -29,6 +29,11 @@ export class DialogflowService {
     this.publishMessages(new RichMessage(messageObject));
   }
 
+  clearConversation(){
+    
+    this.conversation = [];
+    this.chatSubject.next(this.conversation);
+  }
   postToDialogFlow(messageToSend) {
 
     this.client.textRequest(messageToSend).then(response => {

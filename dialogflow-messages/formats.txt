@@ -1,0 +1,20 @@
+text - ("msg":"Hi, My name is Bhushan")
+text with options - ("msg":"Hi, what you would like to know about me?", "options": [("msg":"Resume", "webUrl" :"abc.com/myresume.pdf", type :"webUrl" )] )
+imageUrl - ("msg":"Hi, My name is Bhushan", "imageUrl" : "abc.com/sampleimg.jpg")
+videoUrl - ("msg":"This is my video", "videoUrl" : "abc.com/sample.mp4")
+docUrl - ("msg":"This is my sample doc", "docUrl" : "abc.com/sample.pdf")
+webUrl - ("msg":"This is my blog link", "videoUrl" : "myblog.com")
+options -  ("msg":"Choose one", "options": [("msg":"Resume", "webUrl" :"abc.com/myresume.pdf", type :"webUrl" ), ("msg":"Resume", "videoUrl" :"abc.com/myresume.mp4", type :"videoUrl" )] ) 
+
+
+
+("msg":"Here are my some photography ", "imageUrl" : "https://images.unsplash.com/photo-1563210080-dfe35c83e2eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80")
+
+
+("text":"You can visit my profile on LinkedIn or can mail me", "chips":[("text":"LinkedIn", "webUrl":"https://www.linkedin.com/in/bhushan-pawar/","type":"webUrl"), ("text":"Email", "webUrl":"mailto:abc@gmail.com","type":"webUrl"),("text":"Phone", "webUrl":"tel:+91900400000","type":"webUrl")])
+
+image https://angular8-dialogflow-richmessage-bot.bhushan.now.sh/assets/images/bot.png
+doc  http://www.africau.edu/images/default/sample.pdf
+web https://www.linkedin.com/in/bhushan-pawar/
+video https://www.youtube.com/watch?v=U3mHapckKiQ
+
